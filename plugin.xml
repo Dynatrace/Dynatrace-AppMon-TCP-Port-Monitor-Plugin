@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!-- plugin.xml file written by dynaTrace Client 4.1.0 -->
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.diagnostics.plugins.TCPPortMonitor" name="TCP Port Monitor">
+    <information>
+      <category value="" />
+      <description value="The TCP Port Monitor returns the status of a port." />
+    </information>
+    <configuration>
+      <property key="port" label="Port" type="string" description="Enter the port number." default="" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugins.TCPPortMonitor.monitor" name="TCP Port Monitor">
+    <plugin configid="com.dynatrace.diagnostics.plugins.TCPPortMonitor" class="ws.Port" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugins.TCPPortMonitor.monitor.metricgroup1" name="TCP Port Monitor">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugins.TCPPortMonitor.monitor">
+      <metric defaultrate="purepath" name="portStatus" unit="number" description="If the port is open, the measure will yield 1, otherwise 0. " />
+    </metricgroup>
+  </extension>
+</plugin>
+
