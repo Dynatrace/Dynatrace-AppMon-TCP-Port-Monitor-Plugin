@@ -4,5 +4,5 @@
 
 The TCP Port Monitor plugin creates a stream socket that connects to the specified port on the named host. It returns the status of the port as a measure.
 
-Find further information in the [dynatrace community](https://community.compuwareapm.com/community/display/DL/TCP+Port+Monitor+Plugin)
+Find further information in the [dynatrace community](https://community.dynatrace.com/community/display/DL/TCP+Port+Monitor+Plugin)
 
