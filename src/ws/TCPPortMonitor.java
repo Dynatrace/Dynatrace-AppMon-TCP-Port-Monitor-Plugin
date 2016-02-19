@@ -16,6 +16,7 @@ public class TCPPortMonitor {
 	private boolean matchRuleSuccess;
 	private String server = null;
 	String portString = null;
+	long responseTime;
 
 	
 	private static final Logger log = Logger.getLogger(TCPPortMonitor.class.getName());
@@ -31,12 +32,16 @@ public class TCPPortMonitor {
 			
 		return result;
 	}
+	
+	public long getResponseTime() {
+	return responseTime;
+}
 
 	protected Status execute(PluginEnvironment env) throws Exception {
 		Status result = new Status(Status.StatusCode.Success);
-
+		responseTime = System.currentTimeMillis();
 		String output = executeCommand(result);
-
+		responseTime = System.currentTimeMillis() - responseTime;
 		if (log.isLoggable(Level.FINE)) log.fine("Command output was: " + output);
 		
 		matchRuleSuccess = false;

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Require-Bundle: com.dynatrace.diagnostics.sdk
 Bundle-Vendor: dynaTrace Community
 Bundle-ClassPath: .
-Bundle-Version: 3.5.2
+Bundle-Version: 6.2.0
 Bundle-Name: TCP Port Monitor
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: com.dynatrace.diagnostics.plugins.TCPPortMonitor;
