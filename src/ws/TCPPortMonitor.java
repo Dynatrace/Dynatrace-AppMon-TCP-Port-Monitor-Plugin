@@ -15,7 +15,7 @@ public class TCPPortMonitor {
 	
 	private boolean matchRuleSuccess;
 	private String server = null;
-	String portString = null;
+	long port = 0;
 	long responseTime;
 
 	
@@ -24,9 +24,9 @@ public class TCPPortMonitor {
 	protected Status setup(PluginEnvironment env) throws Exception {
 		Status result = new Status(Status.StatusCode.Success);
         String host = env.getHost().getAddress();
-		portString = env.getConfigString(CONFIG_PORT);
+		port = env.getConfigLong(CONFIG_PORT);
 		
-			if (portString != null && host != null) {
+			if (host != null) {
 				server = host;
 			}
 			
@@ -74,20 +74,20 @@ public class TCPPortMonitor {
 
 	private String executeCommand(Status status) {
 				 
-        int port = Integer.parseInt(portString);
+        int intPort = (int) port;
         String message = null;
 
             try { 
 
-                Socket socket = new Socket(server, port); 
-                message = port + " is open on " + server; 
+                Socket socket = new Socket(server, intPort); 
+                message = intPort + " is open on " + server; 
                 socket.close(); 
 
             	} 
             
             catch (IOException e) { 
 
-            	message = port + " is not open on " + server; 
+            	message = intPort + " is not open on " + server; 
 
             	}
 		

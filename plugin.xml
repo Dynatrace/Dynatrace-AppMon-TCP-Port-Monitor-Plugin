@@ -9,7 +9,7 @@
       <supportlevel value="unsupported" />
     </information>
     <configuration>
-      <property key="port" label="Port" type="string" description="Enter the port number to test the socket connection." default="" multiline="false" />
+      <property key="port" label="Port" type="long" description="Enter the port number to test the socket connection." default="22" />
     </configuration>
   </extension>
   <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugins.TCPPortMonitor.monitor" name="TCP Port Monitor">
