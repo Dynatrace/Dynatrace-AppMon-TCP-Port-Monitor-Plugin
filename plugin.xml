@@ -5,11 +5,11 @@
   <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.diagnostics.plugins.TCPPortMonitor" name="TCP Port Monitor">
     <information>
       <category value="" />
-      <description value="The TCP Port Monitor returns the status of a port." />
+      <description value="The TCP Port Monitor returns the status of a socket connection to the specified port." />
       <supportlevel value="unsupported" />
     </information>
     <configuration>
-      <property key="port" label="Port" type="string" description="Enter the port number." default="" multiline="false" />
+      <property key="port" label="Port" type="string" description="Enter the port number to test the socket connection." default="" multiline="false" />
     </configuration>
   </extension>
   <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugins.TCPPortMonitor.monitor" name="TCP Port Monitor">
@@ -18,7 +18,7 @@
   <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugins.TCPPortMonitor.monitor.metricgroup1" name="TCP Port Monitor">
     <metricgroup monitorid="com.dynatrace.diagnostics.plugins.TCPPortMonitor.monitor">
       <metric defaultrate="purepath" name="portStatus" unit="number" description="If the port is open, the measure will yield 1, otherwise 0. " />
-      <metric defaultrate="purepath" name="ResponseTime" unit="ms" description="My metric description ..." />
+      <metric defaultrate="purepath" name="ResponseTime" unit="ms" description="The response time to establish the socket connect" />
     </metricgroup>
   </extension>
 </plugin>
